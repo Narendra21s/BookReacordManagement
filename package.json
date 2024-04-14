@@ -1,0 +1,24 @@
+{
+  "name": "dev-bookrecord-pro",
+  "version": "1.0.0",
+  "description": "Library System",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Narendra21s/BookReacordManagement.git"
+  },
+  "author": "Narendra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Narendra21s/BookReacordManagement/issues"
+  },
+  "homepage": "https://github.com/Narendra21s/BookReacordManagement#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}

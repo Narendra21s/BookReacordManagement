@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "narendra"
+    },
+    {
+      "id": "2",
+      "name": "Vivek"
+    },
+    {
+      "id": "3",
+      "name": "Naveen",
+      "surname": "Bosupula",
+      "email": "naveen123@gamil.com",
+      "issuedBook": "3",
+      "issuedData": "01/07/2024",
+      "returnData": "01/10/2024",
+      "subscriptionType": "Premium",
+      "subscriptionData": "01/01/2024"
+    },
+    {
+      "id": "4",
+      "name": "Sujatha",
+      "surname": "Sangaraju",
+      "email": "suajatha123@gamil.com",
+      "subscriptionType": "Premium",
+      "subscriptionData": "01/01/2024"
+    }
+  ]
+}
