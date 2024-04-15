@@ -1,5 +1,6 @@
 const express = require("express");
 const { users } = require("../data/users.json");
+const { route } = require("./books");
 const router = express.Router();
 
 // http:localhost:8001/users/
@@ -128,4 +129,48 @@ router.delete("/:id", (req, res) => {
     data: users,
   });
 });
+
+/*
+ Routes : /users/subscription-details/:id
+  Method : GET
+  Description : Get all user Subscription Details
+  Access : Public
+  Parameters : Id
+  */
+
+router.get("/users/subscription-details/:id", (req, res) => {
+  const { id } = req.params;
+  const user = users.find((each = each.id === id));
+  if (!user) {
+    return res.status(404).json({
+      success: false,
+      msg: "User with the id not found",
+    });
+  }
+  const getDateInDays = (data = "") => {
+    let date;
+    if (data === "") {
+      date = new Date();
+    } else {
+      date = new Date(data);
+    }
+
+    // 150min => 150 / 60 hr
+    let days = Math.floor(date / (1000 * 60 * 60 * 24));
+    return days;
+  };
+  const subscriptionType = (date) => {
+    if (user.subscriptionType == "Basic") {
+      date = date + 90;
+    }
+    if (user.subscriptionType == "Standard") {
+      date = date + 180;
+    }
+    if (user.subscriptionType == "Premium") {
+      date = date + 365;
+    }
+    return date;
+  };
+});
+
 module.exports = router;

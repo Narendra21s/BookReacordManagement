@@ -81,4 +81,82 @@ router.get("/:id", (req, res) => {
   });
 });
 
+/*
+  Routes : /
+  Method : POST
+  Description : Adding a New Book
+  Access : Public
+  Parameters : None
+  Data : price,id,genre,publisher,name
+  */
+
+router.post("/", (req, res) => {
+  const { data } = req.body;
+  if (!data) {
+    return res.status(404).json({
+      success: false,
+      msg: "No data to add a book",
+    });
+  }
+  const book = books.find((each) => each.id === data.id);
+  if (book) {
+    return res.status(404).json({
+      success: false,
+      msg: "The book already Exist",
+    });
+  }
+  const allBooks = { ...books, data };
+  return res.status(201).json({
+    success: true,
+    msg: "Added Book Successfully",
+    data: allBooks,
+  });
+});
+
+/*
+ Routes : /
+  Method : POST
+  Description : Adding a New Book
+  Access : Public
+  Parameters : None
+  */
+
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const { data } = req.body;
+  if (!data) {
+    return res.status(404).json({
+      success: false,
+      msg: "No data is entered",
+    });
+  }
+  const book = books.find((each) => each.id === id);
+  if (!book) {
+    res.status(404).json({
+      succes: false,
+      msg: "Book not found for this id",
+    });
+  }
+
+  const updatedData = books.map((each) => {
+    if (each.id === id) {
+      return { ...each, ...data };
+    }
+    return each;
+  });
+  return res.status(200).json({
+    success: true,
+    msg: "Books is updated",
+    data: updatedData,
+  });
+});
+
+/*
+ Routes : /
+  Method : POST
+  Description : Adding a New Book
+  Access : Public
+  Parameters : None
+  */
+
 module.exports = router;
