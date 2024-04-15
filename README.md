@@ -62,3 +62,11 @@ GET : Get all books by id
 ## npm init
 
 ## npm i nodemon
+
+const index = users.indexOf(user);
+users.splice(index, 1);
+
+var arr=["six","seven","eight"];
+arr.indexOf('seven');
+
+o/p :- 1
