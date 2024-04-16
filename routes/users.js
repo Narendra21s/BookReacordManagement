@@ -138,9 +138,9 @@ router.delete("/:id", (req, res) => {
   Parameters : Id
   */
 
-router.get("/users/subscription-details/:id", (req, res) => {
+router.get("/subscription-details/:id", (req, res) => {
   const { id } = req.params;
-  const user = users.find((each = each.id === id));
+  const user = users.find((each) => each.id === id);
   if (!user) {
     return res.status(404).json({
       success: false,
@@ -171,6 +171,32 @@ router.get("/users/subscription-details/:id", (req, res) => {
     }
     return date;
   };
+
+  // Jan 1 1970 UTC
+  let returnDate = getDateInDays(user.returnDate);
+  let currentDate = getDateInDays();
+  let subscriptionDate = getDateInDays(user.subscriptionData);
+  let subscriptionExpiration = subscriptionType(subscriptionDate);
+
+  let dt = {
+    ...user,
+    isSubscriptionExpired: subscriptionExpiration <= currentDate,
+    daysLeftForExpiration:
+      subscriptionExpiration <= currentDate
+        ? 0
+        : subscriptionExpiration - currentDate,
+    fine:
+      returnDate < currentDate
+        ? subscriptionExpiration <= currentDate
+          ? 100
+          : 50
+        : 0,
+  };
+  res.status(200).json({
+    success: true,
+    msg: "subscription details for the user",
+    data: dt,
+  });
 });
 
 module.exports = router;

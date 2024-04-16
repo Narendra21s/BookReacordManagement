@@ -153,7 +153,7 @@ router.put("/:id", (req, res) => {
 
 /*
  Routes : /
-  Method : POST
+  Method : 
   Description : Adding a New Book
   Access : Public
   Parameters : None

@@ -6,8 +6,8 @@
       "surname": "Bosupula",
       "email": "dileep123@gamil.com",
       "issuedBook": "1",
-      "issuedData": "01/07/2024",
-      "returnData": "05/8/2024",
+      "issuedDate": "01/07/2024",
+      "returnDate": "05/8/2024",
       "subscriptionType": "Premium",
       "subscriptionData": "01/01/2024"
     },
@@ -17,8 +17,8 @@
       "surname": "Kancharla",
       "email": "vivek123@gamil.com",
       "issuedBook": "2",
-      "issuedData": "01/07/2024",
-      "returnData": "01/10/2024",
+      "issuedDate": "01/07/2024",
+      "returnDate": "01/10/2024",
       "subscriptionType": "Basic",
       "subscriptionData": "01/01/2024"
     },
@@ -28,8 +28,8 @@
       "surname": "Bosupula",
       "email": "naveen123@gamil.com",
       "issuedBook": "3",
-      "issuedData": "01/07/2024",
-      "returnData": "01/10/2024",
+      "issuedDate": "01/07/2024",
+      "returnDate": "01/10/2024",
       "subscriptionType": "Basic",
       "subscriptionData": "01/01/2024"
     },
